@@ -27,4 +27,9 @@ public class cameraScript : MonoBehaviour
         hero.GetComponent<Transform>().position = new Vector2(x, y);
 
     }
+
+    public void gameOver()
+    {
+        rbody.velocity = new Vector2(0, 0);
+    }
 }

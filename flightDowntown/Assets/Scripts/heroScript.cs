@@ -6,6 +6,8 @@ public class heroScript : MonoBehaviour
 {
     Rigidbody2D rbody;
     public ceilingScript ceiling;
+    public cameraScript camera;
+    bool gameOver;
     float x;
     float y;
 
@@ -13,16 +15,20 @@ public class heroScript : MonoBehaviour
     void Start()
     {
         rbody = gameObject.GetComponent<Rigidbody2D>();
-        
+        gameOver = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!gameOver)
         {
-            rbody.AddForce(new Vector2(0, 300));
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rbody.AddForce(new Vector2(0, 300));
+            }
         }
 
         x = gameObject.GetComponent<Transform>().position.x;
@@ -31,5 +37,14 @@ public class heroScript : MonoBehaviour
 
 
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       if(collision.gameObject.tag.Equals("obstacle"))
+        {
+            camera.gameOver();
+            gameOver = true;
+        }
     }
 }
