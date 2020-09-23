@@ -541,6 +541,9 @@ MonoBehaviour:
   aircraftPrototype: {fileID: -9048140768450333787, guid: 630e28a0ae353094088523bd5f9e1198, type: 3}
   buildingPrototype: {fileID: 8806333780131259508, guid: d6051fbe0a831324da0fe7bf9dee0464, type: 3}
   coinPrototype: {fileID: 3186380815470931651, guid: 660dbdc3d539e50439e2ee18f5521387, type: 3}
+  cam: {fileID: 519420030}
+  deltaBuildings: 7
+  deltaAircraft: 14
 --- !u!4 &1538829853
 Transform:
   m_ObjectHideFlags: 0
