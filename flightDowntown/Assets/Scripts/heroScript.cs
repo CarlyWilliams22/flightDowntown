@@ -10,11 +10,13 @@ public class heroScript : MonoBehaviour
     bool gameOver;
     float x;
     float y;
+    Collider2D collider;
 
     // Start is called before the first frame update
     void Start()
     {
         rbody = gameObject.GetComponent<Rigidbody2D>();
+        collider = GetComponent<Collider2D>();
         gameOver = false;
 
     }
@@ -45,6 +47,7 @@ public class heroScript : MonoBehaviour
         {
             camera.gameOver();
             gameOver = true;
+            collider.enabled = !collider.enabled;
         }
     }
 }
