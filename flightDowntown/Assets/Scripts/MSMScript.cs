@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class MSMScript : MonoBehaviour
 {
@@ -14,6 +17,8 @@ public class MSMScript : MonoBehaviour
     float camX;
     public int deltaBuildings;
     public int deltaAircraft;
+    public Text scoreText;
+    int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +91,12 @@ public class MSMScript : MonoBehaviour
                 nCoins++;
             }
         }
+    }
+
+    public void IncrementScore()
+    {
+        score++;
+        scoreText.text = "Score: " + score;
     }
 
 }
