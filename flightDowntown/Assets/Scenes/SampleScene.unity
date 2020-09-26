@@ -239,8 +239,8 @@ Camera:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.25, g: 0.5, b: 1, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.5444998, g: 0.8243361, b: 0.8679245, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -868,7 +868,7 @@ GameObject:
   - component: {fileID: 1538829854}
   m_Layer: 0
   m_Name: Main Scene Manager
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -885,9 +885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a35799bdb56b34d960c0d3ac07a105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aircraftPrototype: {fileID: -9048140768450333787, guid: 630e28a0ae353094088523bd5f9e1198, type: 3}
-  buildingPrototype: {fileID: -1258003460531714906, guid: 75f9f3a8aabead94b9522d3934570a5b, type: 3}
-  coinPrototype: {fileID: 3186380815470931651, guid: 660dbdc3d539e50439e2ee18f5521387, type: 3}
+  aircraftPrototype: {fileID: -4564321865768508915, guid: 01b50f51f1e338543a9de74198cd7694, type: 3}
+  buildingPrototype: {fileID: -441134078863581739, guid: 75f9f3a8aabead94b9522d3934570a5b, type: 3}
+  coinPrototype: {fileID: 7804540833456735486, guid: d2ca816dda5def9458df477f3a136ad5, type: 3}
   cam: {fileID: 519420030}
   coinCollect: {fileID: 8300000, guid: ed4a6a03ecd824542b3dcfa2d4d2f754, type: 3}
   audio: {fileID: 0}
