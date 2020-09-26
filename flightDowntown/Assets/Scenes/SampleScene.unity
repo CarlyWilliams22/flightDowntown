@@ -843,6 +843,7 @@ MonoBehaviour:
   camera: {fileID: 519420030}
   gameOverText: {fileID: 2070376952}
   gameOverSound: {fileID: 8300000, guid: 674851aa576e6844b9ad662cb6517543, type: 3}
+  hitSound: {fileID: 8300000, guid: c57f256943ae0a74e83ae8b47bbf831a, type: 3}
 --- !u!82 &1646935002
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1054,7 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.039373264, g: 0.0754717, b: 0.006763971, a: 1}
+  m_Color: {r: 1, g: 0.023058223, b: 0.007843139, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
