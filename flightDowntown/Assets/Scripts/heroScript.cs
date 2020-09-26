@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class heroScript : MonoBehaviour
 {
     Rigidbody2D rbody;
+    public MSMScript msm;
     public ceilingScript ceiling;
     public cameraScript camera;
     public Text gameOverText;
+    AudioSource audio;
+    public AudioClip gameOverSound;
     bool gameOver;
     float x;
     float y;
@@ -21,6 +24,7 @@ public class heroScript : MonoBehaviour
         collider = GetComponent<Collider2D>();
         gameOver = false;
         gameOverText.gameObject.SetActive(false);
+        audio = GetComponent<AudioSource>();
 
     }
 
@@ -49,6 +53,8 @@ public class heroScript : MonoBehaviour
        if(collision.gameObject.tag.Equals("obstacle"))
         {
             camera.gameOver();
+            msm.audio.Stop();
+            audio.PlayOneShot(gameOverSound);
             gameOver = true;
             collider.enabled = !collider.enabled;
             gameOverText.gameObject.SetActive(true);

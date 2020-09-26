@@ -11,6 +11,8 @@ public class MSMScript : MonoBehaviour
     public BuildingScript buildingPrototype;
     public CoinScript coinPrototype;
     public cameraScript cam;
+    public AudioClip coinCollect;
+    public AudioSource audio;
     Transform camTransform;
     float lastCamXb = 0;
     float lastCamXa = 0;
@@ -24,6 +26,7 @@ public class MSMScript : MonoBehaviour
     void Start()
     {
         camTransform = cam.GetComponent<Transform>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -97,6 +100,7 @@ public class MSMScript : MonoBehaviour
     {
         score++;
         scoreText.text = "Score: " + score;
+        audio.PlayOneShot(coinCollect);
     }
 
 }
