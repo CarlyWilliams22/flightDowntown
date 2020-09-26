@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class heroScript : MonoBehaviour
 {
     Rigidbody2D rbody;
     public ceilingScript ceiling;
     public cameraScript camera;
+    public Text gameOverText;
     bool gameOver;
     float x;
     float y;
@@ -18,6 +20,7 @@ public class heroScript : MonoBehaviour
         rbody = gameObject.GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         gameOver = false;
+        gameOverText.gameObject.SetActive(false);
 
     }
 
@@ -48,6 +51,7 @@ public class heroScript : MonoBehaviour
             camera.gameOver();
             gameOver = true;
             collider.enabled = !collider.enabled;
+            gameOverText.gameObject.SetActive(true);
         }
     }
 }
