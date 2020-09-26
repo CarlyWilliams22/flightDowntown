@@ -12,6 +12,7 @@ public class heroScript : MonoBehaviour
     public Text gameOverText;
     AudioSource audio;
     public AudioClip gameOverSound;
+    public AudioClip hitSound;
     bool gameOver;
     float x;
     float y;
@@ -55,6 +56,7 @@ public class heroScript : MonoBehaviour
             camera.gameOver();
             msm.audio.Stop();
             audio.PlayOneShot(gameOverSound);
+            audio.PlayOneShot(hitSound);
             gameOver = true;
             collider.enabled = !collider.enabled;
             gameOverText.gameObject.SetActive(true);
