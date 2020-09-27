@@ -73,7 +73,7 @@ public class MSMScript : MonoBehaviour
     {
         //Building
         float scaleX = Random.Range(2, 5);
-        float scaleY = Random.Range(2, 5);
+        float scaleY = Random.Range(2, 5.5f);
         BuildingScript building = Instantiate(buildingPrototype, new Vector2(x, -5 + scaleY / 2), Quaternion.identity);
         Transform buildingForm = building.gameObject.GetComponent<Transform>();
         buildingForm.localScale = new Vector2(scaleX, scaleY);

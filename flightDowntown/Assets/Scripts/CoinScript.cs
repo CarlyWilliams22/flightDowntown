@@ -29,8 +29,10 @@ public class CoinScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        msm.IncrementScore();
-        
-        Destroy(gameObject);
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            msm.IncrementScore();
+            Destroy(gameObject);
+        }
     }
 }
