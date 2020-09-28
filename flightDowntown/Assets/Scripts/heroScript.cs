@@ -8,24 +8,26 @@ public class heroScript : MonoBehaviour
     Rigidbody2D rbody;
     public MSMScript msm;
     public ceilingScript ceiling;
-    public cameraScript camera;
+    public cameraScript cam;
     public Text gameOverText;
-    AudioSource audio;
+    AudioSource sound;
     public AudioClip gameOverSound;
     public AudioClip hitSound;
     bool gameOver;
     float x;
     float y;
-    Collider2D collider;
+    Collider2D heroCollider;
+    Transform trsfm;
 
     // Start is called before the first frame update
     void Start()
     {
         rbody = gameObject.GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        heroCollider = GetComponent<Collider2D>();
         gameOver = false;
         gameOverText.gameObject.SetActive(false);
-        audio = GetComponent<AudioSource>();
+        sound = GetComponent<AudioSource>();
+        trsfm = GetComponent<Transform>();
 
     }
 
@@ -41,11 +43,22 @@ public class heroScript : MonoBehaviour
             }
         }
 
-        x = gameObject.GetComponent<Transform>().position.x;
+        x = trsfm.position.x;
         y = ceiling.GetComponent<Transform>().position.y;
         ceiling.GetComponent<Transform>().position = new Vector2(x, y);
 
 
+        
+        if(!gameOver && trsfm.position.y < -10)
+        {
+            cam.gameOver();
+            msm.sound.Stop();
+            sound.PlayOneShot(gameOverSound);
+            sound.PlayOneShot(hitSound);
+            gameOver = true;
+            heroCollider.enabled = !heroCollider.enabled;
+            gameOverText.gameObject.SetActive(true);
+        }
 
     }
 
@@ -53,12 +66,12 @@ public class heroScript : MonoBehaviour
     {
        if(collision.gameObject.tag.Equals("obstacle"))
         {
-            camera.gameOver();
-            msm.audio.Stop();
-            audio.PlayOneShot(gameOverSound);
-            audio.PlayOneShot(hitSound);
+            cam.gameOver();
+            msm.sound.Stop();
+            sound.PlayOneShot(gameOverSound);
+            sound.PlayOneShot(hitSound);
             gameOver = true;
-            collider.enabled = !collider.enabled;
+            heroCollider.enabled = !heroCollider.enabled;
             gameOverText.gameObject.SetActive(true);
         }
     }

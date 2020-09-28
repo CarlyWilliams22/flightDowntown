@@ -644,7 +644,7 @@ MonoBehaviour:
   coinPrototype: {fileID: 7804540833456735486, guid: d2ca816dda5def9458df477f3a136ad5, type: 3}
   cam: {fileID: 519420030}
   coinCollect: {fileID: 8300000, guid: ed4a6a03ecd824542b3dcfa2d4d2f754, type: 3}
-  audio: {fileID: 0}
+  sound: {fileID: 0}
   deltaBuildings: 7
   deltaAircraft: 16
   scoreText: {fileID: 1378182982}
@@ -840,7 +840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   msm: {fileID: 1538829852}
   ceiling: {fileID: 838757549}
-  camera: {fileID: 519420030}
+  cam: {fileID: 519420030}
   gameOverText: {fileID: 2070376952}
   gameOverSound: {fileID: 8300000, guid: 674851aa576e6844b9ad662cb6517543, type: 3}
   hitSound: {fileID: 8300000, guid: c57f256943ae0a74e83ae8b47bbf831a, type: 3}
@@ -1032,7 +1032,7 @@ RectTransform:
   m_GameObject: {fileID: 2070376950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1498623754}
   m_RootOrder: 1
@@ -1040,7 +1040,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 320, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070376952
 MonoBehaviour:
@@ -1064,11 +1064,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

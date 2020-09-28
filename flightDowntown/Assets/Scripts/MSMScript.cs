@@ -12,13 +12,14 @@ public class MSMScript : MonoBehaviour
     public CoinScript coinPrototype;
     public cameraScript cam;
     public AudioClip coinCollect;
-    public AudioSource audio;
+    public AudioSource sound;
     Transform camTransform;
     float lastCamXb = 0;
     float lastCamXa = 0;
     float camX;
     public int deltaBuildings;
     public int deltaAircraft;
+    float deltaDelta;
     public Text scoreText;
     int score = 0;
 
@@ -26,19 +27,23 @@ public class MSMScript : MonoBehaviour
     void Start()
     {
         camTransform = cam.GetComponent<Transform>();
-        audio = GetComponent<AudioSource>();
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         camX = camTransform.position.x;
-        if(camX > lastCamXb + deltaBuildings)
+
+        deltaDelta = Random.Range(0, 3);
+        if(camX > lastCamXb + deltaBuildings + deltaDelta)
         {
             SpawnBuildingAndCoins((int)camX + 14);
             lastCamXb = camX;
         }
-        if (camX > lastCamXa + deltaAircraft)
+
+        deltaDelta = Random.Range(0, 3);
+        if (camX > lastCamXa + deltaAircraft + deltaDelta)
         {
             SpawnAircraftAndCoins((int)camX + 17);
             lastCamXa = camX;
@@ -83,7 +88,7 @@ public class MSMScript : MonoBehaviour
         int nCoins = 0;
         float coinX, coinY;
 
-        while (nCoins < 3)
+        while (nCoins < 2)
         {
             coinX = Random.Range(-deltaBuildings/2, deltaBuildings/2);
             coinY = Random.Range(-4.9f, 1.9f);
@@ -100,7 +105,7 @@ public class MSMScript : MonoBehaviour
     {
         score++;
         scoreText.text = "Score: " + score;
-        audio.PlayOneShot(coinCollect);
+        sound.PlayOneShot(coinCollect);
     }
 
 }
