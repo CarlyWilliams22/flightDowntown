@@ -34,7 +34,6 @@ public class heroScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!gameOver)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -48,7 +47,7 @@ public class heroScript : MonoBehaviour
         ceiling.GetComponent<Transform>().position = new Vector2(x, y);
 
 
-        
+        //Lose if the hero goes to low
         if(!gameOver && trsfm.position.y < -10)
         {
             cam.gameOver();

@@ -35,6 +35,7 @@ public class MSMScript : MonoBehaviour
     {
         camX = camTransform.position.x;
 
+        //spawn a building and a few coins every deltaBuildings (+ deltaDelta)
         deltaDelta = Random.Range(0, 3);
         if(camX > lastCamXb + deltaBuildings + deltaDelta)
         {
@@ -42,6 +43,7 @@ public class MSMScript : MonoBehaviour
             lastCamXb = camX;
         }
 
+        //spawn a helicopter and a few coins every deltaAircraft (+ deltaDelta)
         deltaDelta = Random.Range(0, 3);
         if (camX > lastCamXa + deltaAircraft + deltaDelta)
         {
@@ -66,6 +68,7 @@ public class MSMScript : MonoBehaviour
             coinX = Random.Range(-deltaAircraft/2, deltaAircraft/2);
             coinY = Random.Range(2.1f, 4.9f);
 
+            //make sure the coin does not spawn inside a helicopter
             if (!(coinY <= y+.75 && coinY >= y-.75  && x >= x+xDiff-2 && x <= x+xDiff+2))
             {
                 Instantiate(coinPrototype, new Vector2(x + coinX, coinY), Quaternion.identity);
@@ -91,9 +94,10 @@ public class MSMScript : MonoBehaviour
         while (nCoins < 2)
         {
             coinX = Random.Range(-deltaBuildings/2, deltaBuildings/2);
-            coinY = Random.Range(-4.9f, 1.9f);
+            coinY = Random.Range(-4.8f, 1.8f);
 
-            if (!(coinY < scaleY - 5 + .2 && coinX >= -scaleX / 2 - .2 && coinX <= scaleX / 2 + .2))
+            //make sure the coin does not spawn inside a building
+            if (!(coinY < scaleY - 5 + .25 && coinX >= -scaleX / 2 - .25 && coinX <= scaleX / 2 + .25))
             {
                 Instantiate(coinPrototype, new Vector2(x + coinX, coinY), Quaternion.identity);
                 nCoins++;

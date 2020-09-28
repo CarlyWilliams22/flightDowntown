@@ -21,7 +21,8 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(trsfm.position.x < camTrsfm.position.x - 15)
+        //Destroy coin if past the camera's view
+        if (trsfm.position.x < camTrsfm.position.x - 15)
         {
             Destroy(gameObject);
         }
@@ -29,6 +30,7 @@ public class CoinScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //gain a point if the hero collides with a coin
         if (collision.gameObject.tag.Equals("Player"))
         {
             msm.IncrementScore();

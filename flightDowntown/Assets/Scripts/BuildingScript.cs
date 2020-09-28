@@ -18,6 +18,7 @@ public class BuildingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Destroy building if past the camera's view
         if (trsfm.position.x < camTrsfm.position.x - 15)
         {
             Destroy(gameObject);
