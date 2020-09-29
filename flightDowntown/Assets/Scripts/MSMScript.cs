@@ -112,4 +112,17 @@ public class MSMScript : MonoBehaviour
         sound.PlayOneShot(coinCollect);
     }
 
+    public void SetHighScore()
+    {
+        if (PlayerPrefs.HasKey("highScore"))
+        {
+            if(score > PlayerPrefs.GetInt("highScore")){
+                PlayerPrefs.SetInt("highScore", score);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("highScore", score);
+        }
+    }
 }

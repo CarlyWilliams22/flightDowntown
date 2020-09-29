@@ -6,23 +6,20 @@ using UnityEngine.UI;
 public class CoinScript : MonoBehaviour
 {
     public MSMScript msm;
-    public cameraScript cam;
-    Transform trsfm, camTrsfm;
+    Transform trsfm;
 
     // Start is called before the first frame update
     void Start()
     {
         msm = FindObjectOfType<MSMScript>();
-        cam = FindObjectOfType<cameraScript>();
         trsfm = GetComponent<Transform>();
-        camTrsfm = cam.GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //Destroy coin if past the camera's view
-        if (trsfm.position.x < camTrsfm.position.x - 15)
+        if (trsfm.position.x < Camera.main.GetComponent<Transform>().position.x - 15)
         {
             Destroy(gameObject);
         }

@@ -57,6 +57,7 @@ public class heroScript : MonoBehaviour
             gameOver = true;
             heroCollider.enabled = !heroCollider.enabled;
             gameOverText.gameObject.SetActive(true);
+            msm.SetHighScore();
         }
 
     }
@@ -72,6 +73,7 @@ public class heroScript : MonoBehaviour
             gameOver = true;
             heroCollider.enabled = !heroCollider.enabled;
             gameOverText.gameObject.SetActive(true);
+            msm.SetHighScore();
         }
     }
 }
