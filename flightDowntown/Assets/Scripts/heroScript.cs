@@ -29,6 +29,8 @@ public class heroScript : MonoBehaviour
         trsfm = GetComponent<Transform>();
 
         gameOver = false;
+        //the inital jump for when it moves to the main scene
+        rbody.AddForce(new Vector2(0, 300));
 
     }
 
