@@ -23,6 +23,9 @@ public class MSMScript : MonoBehaviour
     float deltaDelta;
     public Text scoreText;
     int score = 0;
+    public int scoreDelta;
+    public float massDelta;
+    public heroScript hero;
 
     // Start is called before the first frame update
     void Start()
@@ -111,6 +114,13 @@ public class MSMScript : MonoBehaviour
         score++;
         scoreText.text = "Score: " + score;
         sound.PlayOneShot(coinCollect);
+
+
+        //adds massDelta to hero every scoreDelta coins
+        if(score % scoreDelta == 0)
+        {
+            hero.gameObject.GetComponent<Rigidbody2D>().mass += massDelta;
+        }
     }
 
     public void SetHighScore()
