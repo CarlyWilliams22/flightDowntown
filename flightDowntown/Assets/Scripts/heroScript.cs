@@ -16,6 +16,7 @@ public class heroScript : MonoBehaviour
     public AudioClip gameOverSound;
     public AudioClip shorterGameOver;
     public AudioClip hitSound;
+    public AudioClip jumpSound;
     bool gameOver;
     float x;
     float y;
@@ -36,6 +37,7 @@ public class heroScript : MonoBehaviour
         gameOver = false;
         //the inital jump for when it moves to the main scene
         rbody.AddForce(new Vector2(0, 300));
+        sound.PlayOneShot(jumpSound);
 
     }
 
@@ -49,6 +51,7 @@ public class heroScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 rbody.AddForce(new Vector2(0, 300));
+                sound.PlayOneShot(jumpSound);
             }
         }
 
