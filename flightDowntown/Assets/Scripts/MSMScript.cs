@@ -92,7 +92,7 @@ public class MSMScript : MonoBehaviour
         int nCoins = 0;
         float coinX, coinY;
 
-        while (nCoins < 2)
+        while (nCoins < 1)
         {
             coinX = Random.Range(-deltaBuildings/2, deltaBuildings/2);
             coinY = Random.Range(-4.8f, 1.8f);
@@ -127,10 +127,12 @@ public class MSMScript : MonoBehaviour
         }
     }
 
+
     public void PlayAgain()
     {
         SceneManager.LoadScene("LoadingScene");
     }
+
 
     public void endGame()
     {

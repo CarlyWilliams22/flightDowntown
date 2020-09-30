@@ -24,7 +24,7 @@ public class AircraftScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //puts the helicopters in mostion towards the player
+        //puts the helicopters in motion towards the player
         rbody.velocity = new Vector2(-1, 0);
         
     }

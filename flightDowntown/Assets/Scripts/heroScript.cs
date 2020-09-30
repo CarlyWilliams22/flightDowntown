@@ -14,6 +14,7 @@ public class heroScript : MonoBehaviour
     public Button playAgainButton;
     AudioSource sound;
     public AudioClip gameOverSound;
+    public AudioClip shorterGameOver;
     public AudioClip hitSound;
     bool gameOver;
     float x;
@@ -64,8 +65,7 @@ public class heroScript : MonoBehaviour
 
             //plays game over sounds
             msm.sound.Stop();
-            sound.PlayOneShot(gameOverSound);
-            sound.PlayOneShot(hitSound);
+            sound.PlayOneShot(shorterGameOver);
 
             //disables player movement and allows the hero to fall below the screen 
             gameOver = true;
@@ -84,7 +84,7 @@ public class heroScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        //loses if player hits an obstacle 
+        //lose if player hits an obstacle 
        if(collision.gameObject.tag.Equals("obstacle"))
         {
             cam.gameOver();

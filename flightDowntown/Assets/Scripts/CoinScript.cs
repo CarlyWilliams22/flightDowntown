@@ -31,7 +31,9 @@ public class CoinScript : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             msm.IncrementScore();
-            Destroy(gameObject);
         }
+
+        //still destroy the coin
+        Destroy(gameObject);
     }
 }
