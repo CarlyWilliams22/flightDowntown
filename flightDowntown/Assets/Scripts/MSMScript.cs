@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MSMScript : MonoBehaviour
 {
@@ -124,5 +125,15 @@ public class MSMScript : MonoBehaviour
         {
             PlayerPrefs.SetInt("highScore", score);
         }
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("LoadingScene");
+    }
+
+    public void endGame()
+    {
+        Application.Quit();
     }
 }

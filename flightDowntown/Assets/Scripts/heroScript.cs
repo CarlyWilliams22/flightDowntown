@@ -10,6 +10,8 @@ public class heroScript : MonoBehaviour
     public ceilingScript ceiling;
     public cameraScript cam;
     public Text gameOverText;
+    public Button endGameButton;
+    public Button playAgainButton;
     AudioSource sound;
     public AudioClip gameOverSound;
     public AudioClip hitSound;
@@ -25,6 +27,8 @@ public class heroScript : MonoBehaviour
         rbody = gameObject.GetComponent<Rigidbody2D>();
         heroCollider = GetComponent<Collider2D>();
         gameOverText.gameObject.SetActive(false);
+        playAgainButton.gameObject.SetActive(false);
+        endGameButton.gameObject.SetActive(false);
         sound = GetComponent<AudioSource>();
         trsfm = GetComponent<Transform>();
 
@@ -68,6 +72,8 @@ public class heroScript : MonoBehaviour
             heroCollider.enabled = !heroCollider.enabled;
 
             gameOverText.gameObject.SetActive(true);
+            playAgainButton.gameObject.SetActive(true);
+            endGameButton.gameObject.SetActive(true);
 
             //sets the highscore
             msm.SetHighScore();
@@ -93,6 +99,8 @@ public class heroScript : MonoBehaviour
             heroCollider.enabled = !heroCollider.enabled;
 
             gameOverText.gameObject.SetActive(true);
+            playAgainButton.gameObject.SetActive(true);
+            endGameButton.gameObject.SetActive(true);
 
             //sets the highscore
             msm.SetHighScore();
