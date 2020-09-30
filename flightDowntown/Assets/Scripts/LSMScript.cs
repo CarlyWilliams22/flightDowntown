@@ -11,6 +11,7 @@ public class LSMScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //displays the highscore
         if (PlayerPrefs.HasKey("highScore"))
         {
             scoreText.text = "High Score: " + PlayerPrefs.GetInt("highScore");
@@ -20,6 +21,7 @@ public class LSMScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //starts the game
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("MainScene");

@@ -24,39 +24,50 @@ public class heroScript : MonoBehaviour
     {
         rbody = gameObject.GetComponent<Rigidbody2D>();
         heroCollider = GetComponent<Collider2D>();
-        gameOver = false;
         gameOverText.gameObject.SetActive(false);
         sound = GetComponent<AudioSource>();
         trsfm = GetComponent<Transform>();
+
+        gameOver = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if gameOver is true player can no longer jump
         if (!gameOver)
         {
+            //jumps only when space bar is pressed
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 rbody.AddForce(new Vector2(0, 300));
             }
         }
 
+        //keeps ceiling above hero
         x = trsfm.position.x;
         y = ceiling.GetComponent<Transform>().position.y;
         ceiling.GetComponent<Transform>().position = new Vector2(x, y);
 
 
-        //Lose if the hero goes to low
+        //Lose if the hero goes too low
         if(!gameOver && trsfm.position.y < -10)
         {
             cam.gameOver();
+
+            //plays game over sounds
             msm.sound.Stop();
             sound.PlayOneShot(gameOverSound);
             sound.PlayOneShot(hitSound);
+
+            //disables player movement and allows the hero to fall below the screen 
             gameOver = true;
             heroCollider.enabled = !heroCollider.enabled;
+
             gameOverText.gameObject.SetActive(true);
+
+            //sets the highscore
             msm.SetHighScore();
         }
 
@@ -64,15 +75,24 @@ public class heroScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        //loses if player hits an obstacle 
        if(collision.gameObject.tag.Equals("obstacle"))
         {
             cam.gameOver();
+
+            //plays game over sounds
             msm.sound.Stop();
             sound.PlayOneShot(gameOverSound);
             sound.PlayOneShot(hitSound);
+
+            //disables player movement and allows the hero to fall below the screen 
             gameOver = true;
             heroCollider.enabled = !heroCollider.enabled;
+
             gameOverText.gameObject.SetActive(true);
+
+            //sets the highscore
             msm.SetHighScore();
         }
     }
