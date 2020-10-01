@@ -1130,7 +1130,7 @@ MonoBehaviour:
   deltaBuildings: 9
   deltaAircraft: 16
   scoreText: {fileID: 1378182982}
-  scoreDelta: 30
+  scoreDelta: 15
   massDelta: 0.1
   hero: {fileID: 1646935001}
 --- !u!4 &1538829853
